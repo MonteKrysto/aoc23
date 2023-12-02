@@ -107,6 +107,7 @@ func findAllMatches(s string) []Match {
 }
 
 func calculateCalibrationValue(values []string) int {
+	// Get the first and last digits only
 	if len(values) >= 2 {
 		firstDigit, _ := strconv.Atoi(values[0])
 		lastDigit, _ := strconv.Atoi(values[len(values)-1])
@@ -114,6 +115,7 @@ func calculateCalibrationValue(values []string) int {
 		return combinedValue
 	}
 
+	// If there is only one digit multiply it by 11 to get two digits.  Ex: 9 will return 99
 	if len(values) == 1 {
 		singleDigit, _ := strconv.Atoi(values[0])
 		return singleDigit * 11
